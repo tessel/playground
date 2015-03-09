@@ -1,0 +1,29 @@
+html
+  head
+    title!= title
+    script(src="/bundle.js")
+    link(rel='stylesheet', href='/codemirror.css')
+    link(rel='stylesheet', href='/monokai.css')
+
+    style.
+      iframe { position: absolute; left: -100000px; }
+
+  body
+    h1 Tessel Emulator
+    div(style="display: flex; width: 100%;")
+      div(style="flex: 1;")
+        div
+          img(src="/tessel2-module.png")
+        div
+          <input id="range" type="range"/>
+          p move this slider ^^^
+      div(style="flex: 1")
+        textarea.
+          // Edit me you fool
+          ambient.on('data', function (temp) {
+            console.log(temp, 'deg');
+          });
+      div(style="flex: 1")
+        pre#output(style="height: 330px; overflow: auto; padding: 15px; box-sizing: border-box; background: #ffc; border: 1px solid #aaa; margin: 0;")
+
+    button#run RUN THE CODE

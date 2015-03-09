@@ -1,0 +1,19 @@
+{
+  "name": "tesseli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.2",
+    "jade": "^1.9.2"
+  },
+  "devDependencies": {
+    "browser-module-sandbox": "^1.3.9",
+    "jquery": "^2.1.3"
+  }
+}
