@@ -4,6 +4,7 @@ html
     script(src="/bundle.js")
     link(rel='stylesheet', href='/codemirror.css')
     link(rel='stylesheet', href='/monokai.css')
+    link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
 
     style.
       iframe { position: absolute; left: -100000px; }
@@ -40,7 +41,9 @@ html
         div
           img(src="/tessel2-module.png")
         div
-          <input id="range" type="range"/>
+          <img src="http://images.clipartpanda.com/snowflake-clipart-transparent-background-bcyE66qcL.png" width="30">
+          <input id="range" type="range">
+          <img src="http://www.clker.com/cliparts/a/6/4/9/11954351131708850731zeimusu_Fire_Icon.svg.hi.png" width="30">
           p move this slider ^^^
       div(style="flex: 1")
         textarea.
@@ -52,3 +55,6 @@ html
         pre#output(style="height: 330px; overflow: auto; padding: 15px; box-sizing: border-box; background: #ffc; border: 1px solid #aaa; margin: 0;")
 
     button#run RUN THE CODE
+
+    div(style="margin-top: 150px")
+      img(src="http://www.11points.com/images/animatedgifs/flamingline.gif")
