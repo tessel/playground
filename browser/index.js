@@ -49,8 +49,10 @@ $(function () {
   window.addEventListener('message', function (e) {
     console.log(e);
     var data = JSON.parse(e.data);
-    $('#output').append(data.join(' ') + '\n');
-    $('#output')[0].scrollTop = 1e6;
+    if (data) {
+      $('#output').append(data.join(' ') + '\n');
+      $('#output')[0].scrollTop = 1e6;
+    }
   }, false)
 
   $('#run').on('click', function () {
