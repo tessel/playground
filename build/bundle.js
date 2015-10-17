@@ -43,14 +43,16 @@ $(function () {
 
   $('#range').on('mousemove change mousedown', function () {
     $('iframe').each(function () {
-      this.contentWindow.postMessage(JSON.stringify($('#range').val()), '*')
+      var temp = $('#range').val();
+      this.contentWindow.postMessage(JSON.stringify(temp), '*')
+      $('#heat').toggle(temp == 100);
     })
   })
 
   window.addEventListener('message', function (e) {
     console.log(e);
     var data = JSON.parse(e.data);
-    if (data) {
+    if (data && data.join) {
       $('#output').append(data.join(' ') + '\n');
       $('#output')[0].scrollTop = 1e6;
     }
