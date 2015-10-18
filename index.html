@@ -36,13 +36,17 @@ html, body { width: 100%; height: 100%; margin: 0; padding: 0; }
 body { font-family: Helvetica, sans-serif; }
 
 h1 { margin: 0; padding: 10px 15px; background: #ccc; font-size: 20px; }
-</style></head><body style="display: flex; flex-direction: column; align-items: stretch;"><h1>Tessel Playground: Ambient Module</h1><div style="display: flex; flex: 1"><div><div><img src="tessel2-module.png"/></div><img src="http://images.clipartpanda.com/snowflake-clipart-transparent-background-bcyE66qcL.png" width="30">
+</style></head><body style="display: flex; flex-direction: column; align-items: stretch;"><h1>Tessel Playground: Climate Module</h1><div style="display: flex; flex: 1"><div><div><img src="tessel2-module.png"/></div><img src="http://images.clipartpanda.com/snowflake-clipart-transparent-background-bcyE66qcL.png" width="30">
 <input id="range" type="range">
 <img src="http://www.clker.com/cliparts/a/6/4/9/11954351131708850731zeimusu_Fire_Icon.svg.hi.png" width="30"><p>move this slider ^^^</p><button id="run">RUN THE CODE</button><div id="heat" style="width: 200px; overflow: hidden; display: none;"><img src="http://www.11points.com/images/animatedgifs/flamingline.gif"/></div></div><div style="flex: 1; flex-direction: column; display: flex;"><textarea>// Edit this code!
 // Then hit the run button.
 // Then move the slider.
 // Test Tessel without even having a Tessel!
 
+var tessel = require('tessel');
+var ambientlib = require('ambient-att84');
+
+var ambient = ambientlib.use(tessel.port['A']);
 ambient.on('data', function (temp) {
   console.log(temp, 'deg');
 });</textarea></div><div style="flex: 1; flex-direction: column; display: flex;"><pre id="output" style="overflow: auto; padding: 15px; box-sizing: border-box; background: #ffc; border: 1px solid #aaa; margin: 0;"></pre></div></div></body></html>
