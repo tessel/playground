@@ -47,7 +47,7 @@ html
       h1 { margin: 0; padding: 10px 15px; background: #ccc; font-size: 20px; }
 
   body(style="display: flex; flex-direction: column; align-items: stretch;")
-    h1 Tessel Playground: Ambient Module
+    h1 Tessel Playground: Climate Module
     div(style="display: flex; flex: 1")
       div
         div
@@ -67,6 +67,10 @@ html
           // Then move the slider.
           // Test Tessel without even having a Tessel!
           
+          var tessel = require('tessel');
+          var ambientlib = require('ambient-att84');
+          
+          var ambient = ambientlib.use(tessel.port['A']);
           ambient.on('data', function (temp) {
             console.log(temp, 'deg');
           });

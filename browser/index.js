@@ -15,6 +15,16 @@ function okay () {
       window.top.postMessage(JSON.stringify([].slice.apply(arguments)), '*');
     }
   };
+  function __require (str) {
+    if (str == 'tessel') {
+      return { port: { 'A': {} } };
+    }
+    if (str == 'ambient-att84') {
+      return { use: function () {
+        return new Ambient();
+      } };
+    }
+  }
   var temp = 0;
   window.addEventListener('message', function (e) {
     var data = JSON.parse(e.data);
@@ -25,7 +35,6 @@ function okay () {
       caller(temp);
     }, 300);
   }
-  var ambient = new Ambient();
   EOF
 }
 
@@ -61,7 +70,12 @@ $(function () {
     $('iframe').remove();
     $('#output').html('');
 
+    var code = prefix.replace('temp = 0', 'temp = ' + $('#range').val()) + '\n' + myCodeMirror.getValue();
+    code = code.replace(/\brequire\b/g, '__require');
+
+    console.log(code);
+
     var sandbox = new Sandbox;
-    sandbox.bundle(prefix.replace('temp = 0', 'temp = ' + $('#range').val()) + '\n' + myCodeMirror.getValue());
+    sandbox.bundle(code);
   })
 })
